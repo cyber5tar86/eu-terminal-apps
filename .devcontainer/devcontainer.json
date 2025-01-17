@@ -1,6 +1,4 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {
-    "ghcr.io/devcontainers-extra/features/ccache-asdf:2": {}
-  }
+  "image": "stateoftheartio/qt6:6.8-android-aqt",
+  "features": {}
 }
