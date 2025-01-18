@@ -6,8 +6,7 @@
 #include "business_logic.h"
 
 
-BusinessLogic::BusinessLogic(std::shared_ptr<Machine> machine,
-                             QObject *parent)
+BusinessLogic::BusinessLogic(std::shared_ptr<Machine> machine, QObject *parent)
     : QObject(parent)
     , m_machine{machine}
 {

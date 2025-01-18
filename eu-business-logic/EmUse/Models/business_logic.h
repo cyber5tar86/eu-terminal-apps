@@ -3,10 +3,8 @@
 #pragma once
 
 #include <memory>
-
 #include <QObject>
-
-#include "main_model.h"
+#include "main_view_model.h"
 
 class Machine;
 
@@ -14,15 +12,15 @@ class BusinessLogic : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(MainModel *mainModel READ mainModel CONSTANT)
+    Q_PROPERTY(MainViewModel* mainViewModel READ mainViewModel CONSTANT)
 
 public:
     explicit BusinessLogic(std::shared_ptr<Machine> machine, QObject *parent = nullptr);
     virtual ~BusinessLogic();
 
-    MainModel *mainModel();
+    MainViewModel* mainViewModel();
 
 private:
     std::shared_ptr<Machine> m_machine;
-    MainModel *m_mainModel{nullptr};
+    MainViewModel* m_mainViewModel{nullptr};
 };
