@@ -1,7 +1,10 @@
 // FILE: eu-business-logic/EmUse/Models/main_view_model.cpp
 
+#include <memory>
 #include "main_view_model.h"
 #include "machine.h"
+#include "quantity_object.h"
+
 
 MainViewModel::MainViewModel(std::shared_ptr<Machine> machine, QObject *parent)
     : QObject(parent), m_machine(machine)

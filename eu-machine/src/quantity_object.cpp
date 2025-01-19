@@ -26,9 +26,7 @@ QuantityObject::QuantityObject(qreal minimum, qreal maximum,
     m_impl->m_unit = unit;
 }
 
-QuantityObject::~QuantityObject()
-{
-}
+QuantityObject::~QuantityObject() = default;
 
 qreal QuantityObject::value() const
 {

@@ -4,4 +4,10 @@
 
 #include "machine.h"
 
+/**
+ * @brief Create a Machine object
+ *
+ * @param configuration
+ * @return Machine*
+ */
 Machine *createMachine(Machine::Configuration configuration);

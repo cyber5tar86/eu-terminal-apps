@@ -2,6 +2,8 @@
 
 #include "engine_twin.h"
 #include "private/mock_machine.h"
+#include "../machine.h"
+
 
 struct MockMachine::Impl
 {
@@ -14,9 +16,7 @@ MockMachine::MockMachine()
 {
 }
 
-MockMachine::~MockMachine()
-{
-}
+MockMachine::~MockMachine() = default;
 
 EngineTwin *MockMachine::engine() const
 {

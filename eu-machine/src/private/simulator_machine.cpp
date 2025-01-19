@@ -1,11 +1,13 @@
 // Copyright, Burkhard Stubert (burkhard.stubert@embeddeduse.com)
 
+#include <QObject>
 #include "can_bus_router.h"
 #include "engine_twin.h"
 #include "private/can_bus_simulator.h"
-#include "engine_twin.h"
 #include "private/mock_can_bus_device.h"
 #include "private/simulator_machine.h"
+#include "../machine.h"
+
 
 struct SimulatorMachine::Impl
 {
@@ -23,9 +25,7 @@ SimulatorMachine::SimulatorMachine()
                      &m_impl->m_canBus, &MockCanBusDevice::appendIncomingFrames);
 }
 
-SimulatorMachine::~SimulatorMachine()
-{
-}
+SimulatorMachine::~SimulatorMachine() = default;
 
 EngineTwin *SimulatorMachine::engine() const
 {

@@ -1,5 +1,6 @@
 // Copyright, Burkhard Stubert (burkhard.stubert@embeddeduse.com)
 
+#include <QObject>
 #include "mock_can_bus_device.h"
 #include "quantity.h"
 

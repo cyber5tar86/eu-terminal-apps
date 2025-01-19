@@ -1,4 +1,5 @@
 {
-  "image": "stateoftheartio/qt6:6.8-android-aqt",
-  "features": {}
+    //"image": "stateoftheartio/qt6:6.8-android-aqt",
+    "build": { "dockerfile": "Dockerfile" },
+    "features": {}
 }

@@ -2,6 +2,4 @@
 
 #include "machine.h"
 
-Machine::~Machine()
-{
-}
+Machine::~Machine() = default;

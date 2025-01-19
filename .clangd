@@ -1,2 +1,7 @@
 CompileFlags:
   CompilationDatabase: build/dev
+  Remove: [-I/workspaces/eu-terminal-apps/build]  # Escludi la cartella di build
+
+Index:
+  Exclude:
+    - /workspaces/eu-terminal-apps/build  # Escludi la cartella di build, che contiene file MOC

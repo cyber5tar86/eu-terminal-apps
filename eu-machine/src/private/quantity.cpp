@@ -2,10 +2,6 @@
 
 #include "quantity.h"
 
-Quantity::Quantity()
-{
-}
-
 Quantity::Quantity(Id id, const QByteArray &rawBytes)
     : m_id{id}
     , m_rawBytes{rawBytes}

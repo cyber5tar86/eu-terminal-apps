@@ -1,29 +1,30 @@
 // Copyright, Burkhard Stubert (burkhard.stubert@embeddeduse.com)
 
+#include <memory>
+#include <QObject>
+
 #include "engine_twin.h"
-#include "main_model.h"
 #include "machine.h"
 #include "business_logic.h"
+#include "main_view_model.h"
 
 
 BusinessLogic::BusinessLogic(std::shared_ptr<Machine> machine, QObject *parent)
     : QObject(parent)
-    , m_machine{machine}
+    , m_machine{std::move(machine)}
 {
 }
 
-BusinessLogic::~BusinessLogic()
-{
-}
+BusinessLogic::~BusinessLogic() = default;
 
 
-MainModel *BusinessLogic::mainModel()
+MainViewModel *BusinessLogic::mainViewModel()
 {
-    if (m_mainModel == nullptr)
+    if (m_mainViewModel == nullptr)
     {
-        m_mainModel = new MainModel{this};
-        m_mainModel->setEngineSpeed(m_machine->engine()->engineSpeed());
-        m_mainModel->setVehicleSpeed(m_machine->engine()->vehicleSpeed());
+        m_mainViewModel = new MainViewModel{this};
+        m_mainViewModel->setEngineSpeed(m_machine->engine()->engineSpeed());
+        m_mainViewModel->setVehicleSpeed(m_machine->engine()->vehicleSpeed());
     }
-    return m_mainModel;
+    return m_mainViewModel;
 }
