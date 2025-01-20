@@ -39,7 +39,6 @@ workspace.json
 **/.DS_Store
 .idea/
 .vs/
-.vscode/
 build/
 cmake-build-*/
 conan/
