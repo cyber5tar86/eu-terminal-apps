@@ -1,8 +1,5 @@
 // Copyright, Burkhard Stubert (burkhard.stubert@embeddeduse.com)
 
-#include <QObject>
-
-#include "quantity_object.h"
 #include "main_model.h"
 
 MainModel::MainModel(QObject *parent)

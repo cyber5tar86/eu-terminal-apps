@@ -48,6 +48,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     python3-pip \
     python3-sphinx \
     python3-venv \
+    qml6-module-qtquick-window2 \
+    qml6-module-qtqml-workerscript2 \
     qt6-3d-dev \
     qt6-base-dev \
     qt6-base-private-dev \
@@ -69,7 +71,6 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     qt6-webview-dev \
     ranger \
     spirv-tools \
-    sudo \
     sudo \
     unzip \
     wget \

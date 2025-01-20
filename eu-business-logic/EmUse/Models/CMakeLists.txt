@@ -14,7 +14,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt6 COMPONENTS Core Qml REQUIRED)
 
 qt_policy(SET QTP0001 NEW)
-
 qt6_add_library(${PROJECT_NAME} SHARED
 )
 
@@ -24,7 +23,6 @@ qt6_add_qml_module(${PROJECT_NAME}
     PLUGIN_TARGET QmlModuleBusinessLogicModels
     SOURCES
         main_model.cpp
-        main_view_model.cpp
         business_logic.cpp
 )
 

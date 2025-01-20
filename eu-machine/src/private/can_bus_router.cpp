@@ -4,8 +4,6 @@
 #include <QtEndian>
 
 #include "can_bus_router.h"
-#include "quantity.h"
-
 
 class CanBusRouter::Impl : public QObject
 {

@@ -2,7 +2,6 @@
 
 #include <memory>
 
-#include <QObject>
 #include <QtDebug>
 #include <QtEndian>
 

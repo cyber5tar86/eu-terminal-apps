@@ -10,12 +10,10 @@
 // TODO: Rename to J1939SpnValue
 class Quantity
 {
-    // The Q_GADGET macro is necessary for the Q_ENUM macro.
     Q_GADGET
 
 public:
-    // The Q_ENUM macro makes the enum class available to QML.
-    enum class Id : std::uint16_t
+    enum class Id : quint32
     {
         Undefined = 0U,
         VehicleSpeed = 84U,
@@ -26,44 +24,24 @@ public:
         KneelingRequestRightSide = 1748U,
         KneelingRequestLeftSide = 1749U,
     };
-    Q_ENUM(Id) // The Q_ENUM macro makes the enum class available to QML.
+    Q_ENUM(Id);
 
-    /*!
-     * Creates a new quantity object with the given \a id and \a rawBytes.
-     */
-    Quantity() = default;
-
-    /*!
-     * Creates a new quantity object with the given \a id and \a rawBytes.
-     */
+    Quantity();
     Quantity(Id id, const QByteArray &rawBytes);
 
-    /*!
-     * Returns the ID of the quantity.
-     */
     Id id() const;
-
-    /*!
-     * Returns the raw bytes of the quantity.
-     */
     QByteArray rawBytes() const;
 
 private:
-    Id m_id{Id::Undefined}; //!< ID of the quantity.
-    QByteArray m_rawBytes; //!< Raw bytes of the quantity.
+    Id m_id{Id::Undefined};
+    QByteArray m_rawBytes;
 };
 
-/*!
- * \brief The QuantityObject class represents a quantity object in the business logic.
- */
 inline bool operator==(const Quantity &q1, const Quantity &q2)
 {
     return q1.id() == q2.id() && q1.rawBytes() == q2.rawBytes();
 }
 
-/*!
- * \brief The QuantityObject class represents a quantity object in the business logic.
- */
 inline bool operator!=(const Quantity &q1, const Quantity &q2)
 {
     return !(q1 == q2);

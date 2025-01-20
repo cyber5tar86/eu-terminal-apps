@@ -6,7 +6,7 @@ import EmUse.Models
 
 Rectangle
 {
-    property MainViewModel viewModel: BusinessLogic.mainViewModel
+    property MainModel model: BusinessLogic.mainModel
 
     color: "#1800a3" // duke blue
 
@@ -21,7 +21,7 @@ Rectangle
                 id: rpmText
                 width: 160
                 height: 56
-                text: viewModel.engineSpeed.valueString
+                text: model.engineSpeed.valueString
                 horizontalAlignment: Text.AlignRight
                 verticalAlignment: Text.AlignVCenter
                 color: "#ebf5ee" // mint cream
@@ -32,7 +32,7 @@ Rectangle
             {
                 id: rpmUnit
                 anchors.baseline: rpmText.baseline
-                text: viewModel.engineSpeed.unit
+                text: model.engineSpeed.unit
                 color: "#ebf5ee"
                 font.pixelSize: 24
             }
@@ -47,7 +47,7 @@ Rectangle
                 id: kphText
                 width: 160
                 height: 56
-                text: viewModel.vehicleSpeed.valueString
+                text: model.vehicleSpeed.valueString
                 horizontalAlignment: Text.AlignRight
                 verticalAlignment: Text.AlignVCenter
                 color: "#ebf5ee" // mint cream
@@ -57,7 +57,7 @@ Rectangle
             Text
             {
                 anchors.baseline: kphText.baseline
-                text: viewModel.vehicleSpeed.unit
+                text: model.vehicleSpeed.unit
                 color: "#ebf5ee"
                 font.pixelSize: 24
             }
