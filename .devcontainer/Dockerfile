@@ -76,18 +76,28 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     xvfb && \
     rm -rf /var/lib/apt/lists/*
 
-    RUN useradd -ms /bin/bash user -G sudo
 
-    RUN echo "root:root" | chpasswd
-    RUN echo "user:root" | chpasswd
+RUN touch /var/mail/ubuntu && \
+    chown ubuntu /var/mail/ubuntu && \
+    userdel -r ubuntu
 
-    USER user
+ARG USER_ID=1000
+ARG GROUP_ID=1000
 
-    WORKDIR /home/user
+RUN groupadd -g ${GROUP_ID} user && \
+    useradd -ms /bin/bash -u ${USER_ID} -g user user -G sudo && \
+    echo "user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-    RUN pip install --break-system-packages --user pipx && \
-        ${HOME}/.local/bin/pipx ensurepath && \
-        ${HOME}/.local/bin/pipx completions && \
-        eval "$(register-python-argcomplete pipx)"
+RUN echo "root:root" | chpasswd
+RUN echo "user:root" | chpasswd
 
-    RUN ${HOME}/.local/bin/pipx install conan
+USER user
+
+WORKDIR /home/user
+
+RUN pip install --break-system-packages --user pipx && \
+    ${HOME}/.local/bin/pipx ensurepath && \
+    ${HOME}/.local/bin/pipx completions && \
+    eval "$(register-python-argcomplete pipx)"
+
+RUN ${HOME}/.local/bin/pipx install conan

@@ -15,10 +15,20 @@ MainViewModel::MainViewModel(std::shared_ptr<Machine> machine, QObject *parent)
 
 QuantityObject* MainViewModel::engineSpeed() const
 {
-    return m_engineSpeed.get();
+    return m_machine->engine()->engineSpeed().get();
 }
 
 QuantityObject* MainViewModel::vehicleSpeed() const
 {
-    return m_vehicleSpeed.get();
+    return m_machine->engine()->vehicleSpeed().get();
+}
+
+void MainModel::setEngineSpeed(std::shared_ptr<QuantityObject> rpm)
+{
+    m_machine->engine()->engineSpeed() = rpm;
+}
+
+void MainModel::setVehicleSpeed(std::shared_ptr<QuantityObject> kph)
+{
+    m_machine->engine()->vehicleSpeed() = kph;
 }

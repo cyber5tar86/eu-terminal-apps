@@ -3,6 +3,7 @@
 #pragma once
 
 #include <QObject>
+#include <QQmlEngine>
 #include <memory>
 
 #include "machine.h"
@@ -17,6 +18,8 @@ class MainViewModel : public QObject
 {
     // The Q_OBJECT macro is necessary for signals and slots.
     Q_OBJECT
+    // The QML_ELEMENT macro makes the class available to QML.
+    QML_ELEMENT
 
     // The Q_PROPERTY macro defines a property that is accessible from QML.
     Q_PROPERTY(QuantityObject* engineSpeed READ engineSpeed NOTIFY engineSpeedChanged)
@@ -37,6 +40,16 @@ public:
      * Returns the vehicle speed quantity object.
      */
     QuantityObject* vehicleSpeed() const;
+
+    /*!
+     * Sets the engine speed to the given \a rpm.
+     */
+    void setEngineSpeed(std::shared_ptr<QuantityObject> rpm);
+
+    /*!
+     * Sets the vehicle speed to the given \a kph.
+     */
+    void setVehicleSpeed(std::shared_ptr<QuantityObject> kph);
 
 signals:
     /*!

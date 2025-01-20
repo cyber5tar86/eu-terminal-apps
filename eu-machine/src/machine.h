@@ -3,9 +3,8 @@
 #pragma once
 
 #include <cstdint>
+#include "engine_twin.h"
 
-// Forward declarations
-class EngineTwin;
 
 /*!
  * \brief The Machine class represents a machine in the business logic. The machine provides the

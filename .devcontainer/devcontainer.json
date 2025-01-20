@@ -1,5 +1,32 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/cpp
 {
+    "name": "C++",
     //"image": "stateoftheartio/qt6:6.8-android-aqt",
-    "build": { "dockerfile": "Dockerfile" },
-    "features": {}
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "runArgs": [
+        "--cap-add=SYS_PTRACE",
+        "--security-opt",
+        "seccomp=unconfined"
+    ],
+    "initializeCommand": "",
+    "updateRemoteUserUID": true,
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/user/${localWorkspaceFolderBasename}/,type=bind,consistency=default",
+    "mounts": [
+        "source=${localEnv:HOME}/.ssh/,target=/home/user/.ssh,type=bind,consistency=default",
+        "source=${localEnv:HOME},target=/host,type=bind,consistency=default"
+    ],
+    "workspaceFolder": "/home/user/${localWorkspaceFolderBasename}",
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    // "features": {},
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "/home/user/.configure-environment.sh",
+    // Configure tool-specific properties.
+    // "customizations": {},
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "root"
 }
