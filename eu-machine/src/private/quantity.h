@@ -24,7 +24,7 @@ public:
         KneelingRequestRightSide = 1748U,
         KneelingRequestLeftSide = 1749U,
     };
-    Q_ENUM(Id);
+    Q_ENUM(Id)
 
     Quantity();
     Quantity(Id id, const QByteArray &rawBytes);

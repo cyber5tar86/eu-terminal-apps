@@ -1,0 +1,30 @@
+# Copyright, Burkhard Stubert (burkhard.stubert@embeddeduse.com)
+
+cmake_minimum_required(VERSION 3.19)
+
+project(Hmi VERSION 0.1 LANGUAGES CXX)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(Qt6 COMPONENTS Core Quick REQUIRED)
+
+qt_add_library(${PROJECT_NAME} STATIC
+    hmi.cpp
+    hmi_creator.cpp
+    private/qt_hmi.cpp
+    hmi.qrc
+)
+
+add_library(EmUse::Gui ALIAS ${PROJECT_NAME})
+
+target_include_directories(${PROJECT_NAME}
+    PUBLIC .)
+
+target_link_libraries(${PROJECT_NAME}
+  PRIVATE Qt6::Core Qt6::Quick)

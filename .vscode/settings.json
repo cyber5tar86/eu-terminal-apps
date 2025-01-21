@@ -77,7 +77,19 @@
         "text_encoding": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "qobject": "cpp"
+        "qobject": "cpp",
+        "qqmlapplicationengine": "cpp",
+        "codecvt": "cpp",
+        "condition_variable": "cpp",
+        "source_location": "cpp",
+        "future": "cpp",
+        "iostream": "cpp",
+        "mutex": "cpp",
+        "semaphore": "cpp",
+        "stop_token": "cpp",
+        "thread": "cpp",
+        "*.moc": "cpp",
+        "any": "cpp"
     },
     "files.trimTrailingWhitespace": true
 }

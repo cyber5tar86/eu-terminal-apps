@@ -18,12 +18,12 @@ void MockCanBusDevice::appendIncomingFrames(const QList<QCanBusFrame> &frames)
     QCanBusDevice::enqueueReceivedFrames(frames);
 }
 
-bool MockCanBusDevice::writeFrame(const QCanBusFrame &frame)
+bool MockCanBusDevice::writeFrame([[maybe_unused]] const QCanBusFrame &frame)
 {
     return false;
 }
 
-QString MockCanBusDevice::interpretErrorFrame(const QCanBusFrame &errorFrame)
+QString MockCanBusDevice::interpretErrorFrame([[maybe_unused]] const QCanBusFrame &errorFrame)
 {
     return {};
 }

@@ -6,4 +6,5 @@ project(eu-terminal-apps)
 
 add_subdirectory(eu-machine)
 add_subdirectory(eu-business-logic)
+add_subdirectory(eu-hmi)
 add_subdirectory(eu-main-app)
